@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Aide au repérage et à l'orientation – CPTS Artois Lys</title>
+<style>
+  :root{--mag:#E61F93;--navy:#1D2D54;--ink:#2B2F3A;--gray:#6B7280;--pink:#FCE7F3;--light:#F3F4F7;--line:#E5E7EB;--red:#B42318;--redbg:#FEF3F2}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Calibri,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.45;font-size:17px}
+  header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px}
+  header img{height:40px;width:auto}
+  .exit{background:var(--red);color:#fff;border:0;border-radius:999px;padding:10px 16px;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap}
+  .test{background:var(--pink);color:var(--navy);padding:10px 16px;font-size:14px;text-align:center}
+  .test b{color:var(--mag)}
+  main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+  .kicker{color:var(--mag);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+  h1{color:var(--navy);font-size:26px;line-height:1.2;margin:0 0 10px}
+  h2{color:var(--navy);font-size:21px;margin:0 0 10px}
+  h3{color:var(--navy);font-size:18px;margin:18px 0 8px}
+  p{margin:0 0 12px}
+  .step{display:none}.step.on{display:block}
+  .choices{display:grid;gap:12px;margin-top:16px}
+  .btn{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--light);border-radius:14px;padding:14px 16px;font:inherit;color:var(--navy);font-weight:700;cursor:pointer}
+  .btn small{display:block;font-weight:400;color:var(--gray);margin-top:2px}
+  .btn:hover,.btn:focus{border-color:var(--mag);outline:none}
+  .btn.primary{background:var(--mag);border-color:var(--mag);color:#fff}
+  .btn.danger{background:var(--red);border-color:var(--red);color:#fff}
+  .btn.primary small,.btn.danger small{color:#fde7f1}
+  .back{background:none;border:0;color:var(--gray);font:inherit;cursor:pointer;padding:0;margin:0 0 14px;text-decoration:underline}
+  .card{border-radius:14px;padding:14px 16px;margin:12px 0;background:var(--light)}
+  .card.alert{background:var(--redbg);border:1.5px solid var(--red)}
+  .card.navy{background:var(--navy);color:#fff}.card.navy h3{color:#fff}
+  .num{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .num:first-of-type{border-top:0}
+  .num a{flex:none;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:8px 14px}
+  .alert .num a{background:var(--red)}
+  .num span{font-size:15px}.num b{color:var(--navy)}
+  label.chk{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+  label.chk:first-of-type{border-top:0}
+  label.chk input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--mag)}
+  ul{margin:4px 0 12px;padding-left:20px}li{margin:4px 0}
+  .todo{border:1.5px dashed var(--mag);background:#fff}
+  footer{max-width:720px;margin:0 auto;padding:16px;border-top:1px solid var(--line);font-size:13px;color:var(--gray)}
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="CPTS Artois Lys">
+  <button class="exit" id="exit" title="Quitter immédiatement cette page (touche Échap)">Quitter rapidement ✕</button>
+</header>
+<div class="test"><b>Parcours en création · formulaire en phase test.</b> Rien de ce que vous cochez n'est enregistré ni envoyé.</div>
+
+<main>
+  <!-- Étape 0 -->
+  <section class="step on" id="s0">
+    <p class="kicker">Violences au sein du couple et de la famille</p>
+    <h1>Aide au repérage et à l'orientation</h1>
+    <p>Cet outil vous aide à savoir quoi faire et vers qui vous tourner. Il ne remplace pas l'avis d'un professionnel.</p>
+    <h2>Y a-t-il un danger immédiat, maintenant ?</h2>
+    <div class="choices">
+      <button class="btn danger" data-go="urgence">Oui, il y a un danger maintenant<small>Je vois tout de suite qui appeler</small></button>
+      <button class="btn" data-go="s1">Non, pas dans l'immédiat<small>Je continue</small></button>
+    </div>
+  </section>
+
+  <!-- Urgence -->
+  <section class="step" id="urgence">
+    <button class="back" data-go="s0">← Retour</button>
+    <h1>Danger immédiat : appelez</h1>
+    <div class="card alert">
+      <div class="num"><span><b>17</b> Police / gendarmerie</span><a href="tel:17">Appeler</a></div>
+      <div class="num"><span><b>112</b> Numéro d'urgence européen</span><a href="tel:112">Appeler</a></div>
+      <div class="num"><span><b>114</b> Par SMS, si vous ne pouvez pas parler (accessible en permanence, gratuit)</span><a href="sms:114">SMS</a></div>
+      <div class="num"><span><b>15</b> SAMU, en cas de blessure</span><a href="tel:15">Appeler</a></div>
+    </div>
+    <p>Si vous le pouvez, mettez-vous à l'abri (pièce qui ferme, voisin, lieu public) et gardez votre téléphone sur vous.</p>
+    <button class="btn" data-go="s1">Je ne suis plus en danger immédiat, je continue</button>
+  </section>
+
+  <!-- Étape 1 : qui ? -->
+  <section class="step" id="s1">
+    <button class="back" data-go="s0">← Retour</button>
+    <h2>Vous êtes…</h2>
+    <div class="choices">
+      <button class="btn primary" data-go="p1">Un ou une professionnel(le) de santé<small>Je repère une situation chez une patiente ou un patient</small></button>
+      <button class="btn" data-go="v1">Une personne concernée<small>Pour moi-même</small></button>
+      <button class="btn" data-go="v1">Un proche, un témoin<small>Je m'inquiète pour quelqu'un</small></button>
+    </div>
+  </section>
+
+  <!-- PRO : repérage -->
+  <section class="step" id="p1">
+    <button class="back" data-go="s1">← Retour</button>
+    <p class="kicker">Professionnels de santé · étape 1/2</p>
+    <h1>Repérer</h1>
+    <div class="card navy">
+      <h3>Poser la question, systématiquement</h3>
+      <p>Par exemple : « Avez-vous déjà subi des violences (verbales, psychologiques, physiques, sexuelles) au cours de votre vie ? » ou « Comment ça se passe à la maison ? »</p>
+    </div>
+    <h3>Signes d'alerte observés (facultatif)</h3>
+    <div class="card">
+      <label class="chk"><input type="checkbox" name="sig">Lésions inexpliquées ou explications peu cohérentes</label>
+      <label class="chk"><input type="checkbox" name="sig">Plaintes répétées sans cause retrouvée (douleurs, troubles du sommeil, troubles digestifs)</label>
+      <label class="chk"><input type="checkbox" name="sig">Anxiété, dépression, idées suicidaires, conduites addictives</label>
+      <label class="chk"><input type="checkbox" name="sig">Partenaire très présent, qui répond à sa place ou contrôle les rendez-vous</label>
+      <label class="chk"><input type="checkbox" name="sig">Grossesse mal suivie, rendez-vous manqués</label>
+      <label class="chk"><input type="checkbox" name="sig">La personne évoque elle-même des violences</label>
+    </div>
+    <h3>Critères de danger (si des violences sont évoquées)</h3>
+    <div class="card">
+      <label class="chk"><input type="checkbox" name="dgr">Violences de plus en plus fréquentes ou graves</label>
+      <label class="chk"><input type="checkbox" name="dgr">Menaces de mort, tentative de strangulation, usage ou menace d'une arme</label>
+      <label class="chk"><input type="checkbox" name="dgr">La personne dit avoir peur pour sa vie ou celle de ses enfants</label>
+      <label class="chk"><input type="checkbox" name="dgr">Séparation récente ou en cours</label>
+      <label class="chk"><input type="checkbox" name="dgr">Grossesse en cours</label>
+      <label class="chk"><input type="checkbox" name="dgr">Enfants exposés aux violences</label>
+    </div>
+    <button class="btn primary" id="proResult">Voir l'orientation proposée →</button>
+  </section>
+
+  <!-- PRO : orientation -->
+  <section class="step" id="p2">
+    <button class="back" data-go="p1">← Retour</button>
+    <p class="kicker">Professionnels de santé · étape 2/2</p>
+    <h1>Orienter</h1>
+    <div class="card alert" id="proDanger" hidden>
+      <h3>Situation de danger : priorité à la mise en sécurité</h3>
+      <ul>
+        <li>En cas de danger immédiat : 17 ou 112.</li>
+        <li>Signalement au procureur de la République : depuis la loi du 30 juillet 2020, il est possible sans l'accord de la victime lorsque sa vie est en danger immédiat et qu'elle est sous emprise (art. 226-14 du Code pénal). Informez-la de votre démarche.</li>
+        <li>Enfants en danger : 119 (Allô Enfance en danger).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Dans tous les cas</h3>
+      <ul>
+        <li>Écouter, croire la parole, rappeler que les violences sont interdites par la loi.</li>
+        <li>Constater et tracer : certificat médical descriptif, notes dans le dossier.</li>
+        <li>Remettre les numéros utiles : 3919 (gratuit, anonyme, 24h/24 et 7j/7) et 116 006 (aide aux victimes, 7j/7).</li>
+      </ul>
+    </div>
+    <div class="card navy">
+      <h3>Parcours coordonné de la CPTS Artois Lys</h3>
+      <p>Orientez vers une professionnelle de santé formée à la prise en soin des violences intrafamiliales. Les échanges concernant la patiente se font <b>uniquement via Doctolib Connect</b>, notre outil de coordination hébergeur de données de santé, jamais par e-mail ou messagerie classique.</p>
+    </div>
+    <div class="card todo">
+      <h3>Professionnelles référentes</h3>
+      <p>Liste en cours de constitution (parcours en création). En attendant, contactez la coordination de la CPTS via Doctolib Connect.</p>
+    </div>
+    <button class="btn" data-go="s0">Recommencer</button>
+  </section>
+
+  <!-- VICTIME / PROCHE -->
+  <section class="step" id="v1">
+    <button class="back" data-go="s1">← Retour</button>
+    <h1>Vous n'êtes pas seul(e)</h1>
+    <p>Les violences peuvent être verbales, psychologiques, physiques, sexuelles ou économiques. Elles ne sont jamais de la faute de la personne qui les subit.</p>
+    <h3>Pour parler, gratuitement et anonymement</h3>
+    <div class="card">
+      <div class="num"><span><b>3919</b> Violences Femmes Info · 24h/24, 7j/7, gratuit et anonyme</span><a href="tel:3919">Appeler</a></div>
+      <div class="num"><span><b>116 006</b> Aide aux victimes · 7j/7</span><a href="tel:116006">Appeler</a></div>
+      <div class="num"><span><b>119</b> Enfance en danger · gratuit</span><a href="tel:119">Appeler</a></div>
+      <div class="num"><span><b>114</b> Par SMS, si vous ne pouvez pas parler</span><a href="sms:114">SMS</a></div>
+    </div>
+    <h3>Près de chez vous</h3>
+    <div class="card">
+      <p>Votre médecin traitant, votre sage-femme ou votre pharmacien peuvent vous écouter, vous soigner et vous orienter. Plusieurs professionnelles du territoire sont formées à l'accompagnement des personnes victimes de violences.</p>
+      <div class="num"><span><b>Gendarmerie de Laventie</b> 03 21 27 62 17</span><a href="tel:+33321276217">Appeler</a></div>
+      <div class="num"><span><b>Urgence</b> 17 ou 112</span><a href="tel:17">17</a></div>
+    </div>
+    <div class="card navy">
+      <h3>Conseil de sécurité</h3>
+      <p>Si quelqu'un surveille votre téléphone, utilisez le bouton « Quitter rapidement » en haut de l'écran. Cette page n'enregistre rien.</p>
+    </div>
+    <button class="btn" data-go="s0">Recommencer</button>
+  </section>
+</main>
+
+<footer>
+  Outil d'aide au repérage et à l'orientation de la CPTS Artois Lys – version test (octobre 2026), contenu à valider par le groupe de travail.
+  Aucune donnée saisie n'est conservée ni transmise : cette page ne contient ni formulaire d'envoi, ni cookie, ni outil de mesure d'audience.
+  Les données de santé échangées entre professionnels transitent uniquement par Doctolib Connect (hébergeur de données de santé).
+</footer>
+
+<script>
+  (function () {
+    var steps = document.querySelectorAll('.step');
+    function show(id) {
+      steps.forEach(function (s) { s.classList.toggle('on', s.id === id); });
+      window.scrollTo(0, 0);
+      if (id === 's0') document.querySelectorAll('input[type=checkbox]').forEach(function (c) { c.checked = false; });
+    }
+    document.querySelectorAll('[data-go]').forEach(function (b) {
+      b.addEventListener('click', function () { show(b.getAttribute('data-go')); });
+    });
+    document.getElementById('proResult').addEventListener('click', function () {
+      var danger = document.querySelectorAll('input[name=dgr]:checked').length > 0;
+      document.getElementById('proDanger').hidden = !danger;
+      show('p2');
+    });
+    // Sortie rapide : remplace la page dans l'historique
+    function quit() { window.location.replace('https://meteofrance.com/'); }
+    document.getElementById('exit').addEventListener('click', quit);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') quit(); });
+  })();
+</script>
+</body>
+</html>
